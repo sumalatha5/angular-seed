@@ -11,7 +11,7 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
   $locationProvider.hashPrefix('!');
   $routeProvider.otherwise({redirectTo: '/view1'});
 }])
-.run([ '$rootScope', 'CONFIG', '$location', '$anchorScroll', function( $rootScope, CONFIG, $location, $anchorScroll) {
+.run([ '$rootScope', '$location', '$anchorScroll', function( $rootScope, $location, $anchorScroll) {
   $rootScope.$on("$locationChangeSuccess", function(){
     $anchorScroll();
   });
