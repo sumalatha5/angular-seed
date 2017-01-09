@@ -9,6 +9,11 @@ angular.module('myApp', [
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
-
   $routeProvider.otherwise({redirectTo: '/view1'});
-}]);
+}])
+.run([ '$rootScope', 'CONFIG', '$location', '$anchorScroll', function( $rootScope, CONFIG, $location, $anchorScroll) {
+  $rootScope.$on("$locationChangeSuccess", function(){
+    $anchorScroll();
+  });
+}])
+;
