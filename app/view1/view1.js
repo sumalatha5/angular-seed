@@ -9,6 +9,9 @@ angular.module('myApp.view1', ['ngRoute'])
   });
 }])
 
-.controller('View1Ctrl', [function() {
 
+.controller('View1Ctrl', ['$scope','$rootScope', 'MetaService', function($scope, $rootScope, MetaService) {
+	// Configure Meta Tags and Title
+	$rootScope.metaservice = MetaService;
+    $rootScope.metaservice.set("view2 | angular-seed","desc","blah blah");
 }]);
